@@ -1,0 +1,40 @@
+The life cycle of a Servlet:-
+============================
+The life cycle of a Servlet consists of several phases, including initialization, handling requests, and termination. The web container manages these phases. Here is an overview of the Servlet life cycle:
+
+1. Loading and Initialization:
+   - The web container loads the Servlet class by either checking the deployment descriptor (web.xml) or using annotations.
+   - The container creates an instance of the Servlet class by calling its constructor.
+   - The `init()` method of the Servlet is invoked by the container, which allows the Servlet to perform one-time initialization tasks. 
+     The `init()` method is typically overridden by the Servlet to set up resources, establish database connections, or load configuration 
+     data.
+
+2. Handling Requests:
+   - After initialization, the Servlet is ready to handle requests. Each time a request is received, the container calls the `service()` 
+     method of the Servlet.
+   - The `service()` method receives the request and response objects as parameters. It is responsible for processing the request and 
+     generating the response.
+   - The `service()` method typically determines the HTTP method (GET, POST, etc.) of the request and dispatches the request to the 
+     appropriate method (`doGet()`, `doPost()`, etc.) of the Servlet.
+   - The Servlet implementation overrides the specific HTTP method methods to provide the necessary functionality.
+   - The request and response objects allow reading request data (parameters, headers, etc.) and constructing the response to be sent back 
+     to the client.
+
+3. Handling Concurrent Requests:
+   - Servlets are designed to handle multiple requests concurrently. The web container manages the creation and management of threads to 
+     handle incoming requests.
+   - Each request is typically processed by a separate thread. This allows multiple clients to be served simultaneously.
+   - It is important to write thread-safe Servlet code to ensure correct behavior in a concurrent environment and prevent data 
+     inconsistency issues.
+
+4. Destroying the Servlet:
+   - The web container can unload a Servlet to reclaim resources or when the web application is stopped or redeployed.
+   - When the container decides to unload the Servlet, it calls the `destroy()` method of the Servlet.
+   - The `destroy()` method is used to release any resources held by the Servlet, such as database connections, open files, or allocated 
+     memory.
+
+5. Reloading or Recreating the Servlet:
+   - In some cases, the web container may reload or recreate a Servlet without stopping the entire web application. This can occur when     
+     the Servlet class file is modified or when the container determines the need for reloading.
+   - If the Servlet is reloaded, the container follows the same initialization process as described earlier (loading, instantiation, and 
+     `init()` method invocation).

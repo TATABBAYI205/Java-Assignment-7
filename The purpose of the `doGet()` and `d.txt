@@ -1,0 +1,30 @@
+ The purpose of the `doGet()` and `doPost()` methods in a Servlet:-
+==================================================================
+_____________________________________________________________________________________________________________________________
+|                |                   doGet() Method                  |                  doPost() Method                     |
+|----------------|---------------------------------------------------|------------------------------------------------------|
+| Purpose        | Used to handle HTTP GET requests.                 | Used to handle HTTP POST requests.                   |
+|                |                                                   |                                                      |
+| Parameters     | HttpServletRequest(request object) and            | HttpServletRequest(request object) and               |
+|                | HttpServletResponse(response object).             | HttpServletResponse(response object).                |
+|                |                                                   |                                                      |
+| Request Data   | Parameters and data are appended in the URL.      | Parameters and data are sent in the body of the      |
+|                |                                                   | request.                                             |
+| Visibility in  | Data is visible in the URL.                       |  Data is not visible in the URL.                     |
+| URL            |                                                   |                                                      |
+| Caching        | Responses can be cached by the browser.           | Responses are not cached by the browser.             |
+|                |                                                   |                                                      |
+| Idempotence    | The `doGet()` method is considered idempotent,    | The `doPost()` method is not necessarily idempotent, |
+|                | meaning multiple identical requests should produce| as it can perform non-idempotent operations like data| 
+|                | the same result.                                  | insertion or updates.                                |
+|                |                                                   |                                                      |
+| Usage          | Typically used for retrieving data, displaying    | Typically used for submitting form data, performing  |
+|                | information, or rendering views.                  | data modifications, or invoking server-side actions. |
+|                |                                                   |                                                      |
+| HTML Forms     | Not commonly used for form submissions as         | Commonly used for form submissions as parameters are |             
+|                | parameters are visible in the URL.                | sent in the request body.                            |
+|                |                                                   |                                                      |
+| Examples       | Fetching user information, displaying product     | Processing login forms, submitting data to a         |    
+|                | details, or generating reports.                   | database, or updating user information.              |
+|________________|___________________________________________________|______________________________________________________|
+        These methods, `doGet()` and `doPost()`, are part of the Servlet service implementation and allow developers to handle different types of HTTP requests in a Servlet. The appropriate method is chosen based on the HTTP method used in the client's request.

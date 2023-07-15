@@ -1,0 +1,19 @@
+Steps involved in JDBC:-
+=======================
+ The steps involved in using JDBC in Java are as follows:
+
+-> Load the JDBC driver: The first step is to load the appropriate JDBC driver class for the database you want to connect to. The driver class is responsible for establishing a connection to the database. You can load the driver class using the Class.forName() method.
+
+-> Establish a database connection: After loading the driver class, you need to establish a connection to the database using the DriverManager.getConnection() method. You provide the URL of the database, username, and password as parameters to establish the connection.
+
+-> Create a statement: Once the connection is established, you need to create a statement object using the Connection.createStatement() method. The statement object allows you to execute SQL queries and retrieve results from the database.
+
+-> Execute SQL queries: You can use the statement object to execute SQL queries using methods such as Statement.execute(), Statement.executeQuery(), or Statement.executeUpdate(). executeQuery() is used for retrieving data from the database, while executeUpdate() is used for data manipulation operations like inserts, updates, and deletes.
+
+-> Process the results: If you execute a query that returns a result set, you can iterate over the result set using methods like ResultSet.next() and retrieve data from the columns using ResultSet.getXXX() methods (e.g., getString(), getInt(), etc.).
+
+-> Handle transactions: JDBC supports transaction management to group database operations into atomic units. You can begin a transaction using the Connection.setAutoCommit(false) method and perform multiple database operations. Afterward, you can commit the transaction using Connection.commit() or roll it back using Connection.rollback().
+
+-> Close resources: It's important to close the JDBC resources (connections, statements, and result sets) once you're done with them to free up system resources. Use the close() method on each resource, starting with the result set, then the statement, and finally the connection.
+
+-> Handle exceptions: Throughout the JDBC code, handle exceptions that may occur during database operations. JDBC methods may throw SQLException, so it's important to catch and handle these exceptions appropriately.

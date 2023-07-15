@@ -1,0 +1,19 @@
+Limitations of JSP:-
+=================
+While JSP (JavaServer Pages) is a widely used technology for building dynamic web pages in Java, it does have some limitations. Here are some of the limitations of JSP:
+
+1. Mixing of Logic and Presentation: JSP pages can sometimes lead to mixing of business logic and presentation code. Developers may be tempted to embed Java code directly within JSP files, which can result in poor separation of concerns. This can make the code difficult to understand, maintain, and test.
+
+2. Steep Learning Curve: JSP involves learning multiple technologies and concepts, such as Java, HTML, JSP syntax, JSTL (JavaServer Pages Standard Tag Library), EL (Expression Language), and MVC architecture. The learning curve can be steep for beginners or developers transitioning from other technologies.
+
+3. Limited Reusability: JSP files can become tightly coupled with specific applications, making it challenging to reuse them in different contexts. Reusability can be improved by separating the business logic into Servlets or using custom tags or tag libraries. However, achieving true modularity and reusability can require additional effort.
+
+4. Performance Overhead: JSP pages need to be translated into servlets by the web container before they can be executed. This translation process introduces an overhead, especially during the initial request. Caching mechanisms can be employed to mitigate this overhead, but it adds complexity to the application.
+
+5. Debugging Challenges: Debugging JSP pages can be more challenging compared to debugging regular Java code. Since JSP files are essentially a mix of Java and HTML, identifying and resolving issues can be more complex. Debugging tools and techniques specific to JSP, such as tag-based breakpoints and stepping through generated servlet code, might be required.
+
+6. Limited Control over HTML Output: While JSP provides the flexibility to generate dynamic HTML, it may not provide fine-grained control over the generated HTML structure. This can make it challenging to meet specific design or accessibility requirements that require precise control over the HTML output.
+
+7. Performance and Scalability Considerations: JSP pages can lead to increased memory usage and slower response times if not designed and optimized properly. Heavy use of scriptlets or inefficient code can negatively impact performance. Careful consideration should be given to performance and scalability aspects when developing JSP-based applications.
+
+8. Tight Coupling with the Servlet API: JSP pages inherently depend on the Servlet API and are tightly coupled with servlets. This can make it difficult to switch to other frameworks or technologies that do not align with the Servlet API. It can also limit the ability to take advantage of specific features or optimizations offered by alternative frameworks.

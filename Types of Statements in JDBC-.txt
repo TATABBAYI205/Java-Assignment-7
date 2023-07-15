@@ -1,0 +1,26 @@
+Types of Statements in JDBC:-
+===========================
+In JDBC, there are three types of statements available for executing SQL queries and updates:
+
+1. Statement: The `Statement` interface is the simplest type of statement in JDBC. It allows you to execute SQL queries and updates directly. You create a statement object using the `Connection.createStatement()` method. Here's an example of using a `Statement`:
+
+Statement statement = connection.createStatement();
+ResultSet resultSet = statement.executeQuery("SELECT * FROM mytable");
+
+2. PreparedStatement: The `PreparedStatement` interface extends `Statement` and provides a precompiled SQL statement that can be executed multiple times with different parameter values. It is useful for queries with parameters or when you need to execute the same query repeatedly with different values. You create a `PreparedStatement` object using the `Connection.prepareStatement()` method. 
+example:
+
+PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO mytable (name, age) VALUES (?, ?)");
+preparedStatement.setString(1, "John Doe");
+preparedStatement.setInt(2, 25);
+int rowsAffected = preparedStatement.executeUpdate();
+
+3. CallableStatement: The `CallableStatement` interface is used to execute stored procedures in the database. Stored procedures are precompiled database programs that can take input parameters, perform operations, and return results. You create a `CallableStatement` object using the `Connection.prepareCall()` method. 
+ example:
+
+CallableStatement callableStatement = connection.prepareCall("{call my_procedure(?, ?)}");
+callableStatement.setString(1, "parameter1");
+callableStatement.setInt(2, 123);
+callableStatement.execute();
+
+These statement types provide different levels of functionality and flexibility. `PreparedStatement` offers better performance than `Statement` as it allows parameter binding and precompilation. `CallableStatement` is specifically designed for executing stored procedures. The choice of statement type depends on the specific requirements of your application.

@@ -1,0 +1,54 @@
+Architecture of JSP:-
+=====================
++--------------------------------------------------------+
+|                      Client (Web Browser)              |
++--------------------------------------------------------+
+                            |
+                      HTTP Request
+                            |
+                     +------------+
+                     | Web Server |
+                     +------------+
+                            |
+                      JSP Container
+                            |
+                     +------------+
+                     |   JSP      |
+                     |   Engine   |
+                     +------------+
+                            |
+                      Compilation
+                            |
+                     +------------+
+                     |   Servlet  |
+                     |   Class    |
+                     +------------+
+                            |
+                      Execution
+                            |
+                     +------------+
+                     |   Servlet  |
+                     |   Instance |
+                     +------------+
+                            |
+                      HTTP Response
+                            |
++--------------------------------------------------------+
+|                      Client (Web Browser)              |
++--------------------------------------------------------+
+
+-> Client (Web Browser): The web browser is the client that sends HTTP requests to the web server and receives the HTTP responses. It interacts with the web application built using JSP.
+
+-> Web Server: The web server, such as Apache Tomcat, receives the HTTP request from the client and forwards it to the JSP container.
+
+-> JSP Container: The JSP container is responsible for managing the execution of JSP pages. It receives the HTTP request from the web server, compiles the JSP page into a Servlet class, and executes the Servlet instance.
+
+-> JSP Engine: The JSP engine is a component of the JSP container that handles the compilation and execution of JSP pages. It performs tasks such as parsing JSP syntax, converting JSP pages into Servlets, and managing the Servlet life cycle.
+
+-> Compilation: The JSP container compiles the JSP page into a Servlet class during the first request or whenever the JSP page changes. The compilation step translates the JSP markup and scriptlets into Java code.
+
+-> Servlet Class: The compiled Servlet class represents the JSP page as a Java class. It inherits from the HttpServlet class and contains the translated JSP code. The Servlet class is responsible for processing HTTP requests and generating dynamic content.
+
+-> Execution: The Servlet instance is created and managed by the JSP container. Each HTTP request results in the creation of a Servlet instance, which handles the request, accesses data, performs computations, and generates the HTTP response.
+
+-> HTTP Response: The Servlet generates an HTTP response, which includes headers, status codes, and the content to be sent back to the client. The response is transmitted back through the web server to the client's web browser.

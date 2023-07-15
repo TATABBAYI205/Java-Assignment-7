@@ -1,0 +1,19 @@
+Servlets in Java:-
+================
+A Servlet is a Java programming language class that is used to extend the capabilities of a web server. It provides a way to handle requests and generate responses for web applications. Servlets are a key component of Java Enterprise Edition (Java EE) and are commonly used for developing server-side web applications.
+
+Here are some key points about Servlets:
+
+1. Handling HTTP requests: Servlets are designed to handle HTTP requests and responses. They can receive requests from clients (web browsers or other applications), process them, and generate dynamic responses.
+
+2. Lifecycle and initialization: Servlets have a well-defined lifecycle managed by the web container (e.g., Apache Tomcat). When a request is received, the container initializes the servlet, calls its `init()` method, and then invokes the `service()` method to process the request. The `init()` method is used for one-time initialization tasks, while the `service()` method is responsible for processing each request.
+
+3. Request and response objects: Servlets have access to request and response objects, which provide information about the incoming request (e.g., parameters, headers) and allow generating the response to be sent back to the client. Servlets can read request data, perform operations based on that data, and construct a response to be sent back to the client.
+
+4. Multithreading and concurrency: Servlets are designed to handle multiple requests concurrently. The web container manages the creation and management of threads to handle incoming requests, allowing multiple clients to be served simultaneously. It is important to write thread-safe servlet code to ensure correct behavior in a concurrent environment.
+
+5. URL mapping and configuration: Servlets are mapped to specific URLs or URL patterns to determine which servlet should handle a particular request. This mapping is typically configured in the web application's deployment descriptor file (web.xml) or using annotations (with Java EE 6 and later versions).
+
+6. Session management: Servlets can manage user sessions using the HttpSession object, which allows storing and retrieving session-specific information. Sessions enable maintaining stateful interactions with clients, tracking user data across multiple requests.
+
+7. Generating dynamic content: Servlets are commonly used to generate dynamic web content. They can include HTML, XML, JSON, or any other type of data in the response. Servlets can also interact with databases, invoke other web services, or perform business logic to generate dynamic content.

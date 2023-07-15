@@ -1,0 +1,35 @@
+Difference between the RequestDispatcher.forward() and HttpServletResponse.sendRedirect() methods:-
+==================================================================================================
+The `RequestDispatcher.forward()` and `HttpServletResponse.sendRedirect()` methods are used in Java Servlets to redirect or forward a request from one resource (such as a Servlet or JSP) to another resource. However, they differ in functionality and behavior:
+
+1. RequestDispatcher.forward():
+   - The `RequestDispatcher.forward()` method is used for internal forwarding within the server.
+   - It allows the current request to be sent to another resource on the server, such as another Servlet or JSP page, without the client 
+     being aware of the forwarding.
+   - The forward is performed by the web container without the client being involved in the process.
+   - The URL in the client's browser remains unchanged, as the request is transparently forwarded internally on the server.
+   - The forwarded resource can access the same request and response objects, maintaining the original request attributes and parameters.
+   - The forward is typically used for modularizing web application logic, dispatching requests to appropriate components, or implementing 
+     MVC patterns.
+
+Example usage of `RequestDispatcher.forward()`:
+
+RequestDispatcher dispatcher = request.getRequestDispatcher("/anotherServlet");
+dispatcher.forward(request, response);
+
+2. HttpServletResponse.sendRedirect():
+   - The `HttpServletResponse.sendRedirect()` method is used to redirect the client's browser to a different URL, typically located on the 
+     same or a different server.
+   - It sends an HTTP response to the client with the status code 302 (temporary redirect) or 301 (permanent redirect) along with the new 
+     URL.
+   - The client's browser receives the redirect response and automatically sends a new request to the specified URL.
+   - The new URL is visible in the client's browser as it replaces the original URL. This means that subsequent requests are sent directly 
+     to the new URL.
+   - The redirected resource cannot access the original request and response objects, as it involves a new request initiated by the 
+     client.
+   - The redirect is commonly used for handling form submissions, implementing the Post-Redirect-Get (PRG) pattern, or directing users to 
+     a different page after authentication.
+
+Example usage of `HttpServletResponse.sendRedirect()`:
+
+response.sendRedirect("/newPage.jsp");

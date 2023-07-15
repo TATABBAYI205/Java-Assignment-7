@@ -1,0 +1,19 @@
+Uses of JDBC:-
+============
+JDBC (Java Database Connectivity) is a Java API that provides a standard way to interact with relational databases. It allows Java applications to connect to a database, send queries, retrieve results, and manipulate data.
+
+The main purpose of JDBC is to provide a uniform interface for accessing databases regardless of the specific database management system (DBMS) being used. It acts as a bridge between Java code and the underlying database, enabling developers to write database-independent applications.
+
+Here are some key uses of JDBC in Java:
+
+-> Establishing database connections: JDBC allows you to establish connections to a wide range of databases, including Oracle, MySQL, PostgreSQL, SQL Server, and more. It provides classes and interfaces to manage database connections efficiently.
+
+-> Executing SQL queries: With JDBC, you can send SQL statements to the database and retrieve the results. It supports both static SQL (predefined queries) and dynamic SQL (queries generated at runtime). JDBC also provides features for handling prepared statements and stored procedures.
+
+-> Retrieving and manipulating data: JDBC enables you to fetch data from database tables and manipulate it using Java code. You can iterate over result sets, access individual columns and rows, and perform data operations like inserts, updates, and deletes.
+
+-> Transaction management: JDBC supports transactional operations, allowing you to group database operations into transactions. You can begin, commit, or rollback transactions to ensure data integrity and consistency.
+
+-> Handling database metadata: JDBC provides methods to extract metadata information about the database, such as table and column names, data types, indexes, and constraints. This metadata can be useful for dynamically generating SQL statements or building flexible data access layers.
+
+Managing database drivers: JDBC includes a driver manager that handles the loading and management of database-specific JDBC drivers. This allows developers to write portable code that can connect to different databases without requiring changes to the application code.
